@@ -1,0 +1,51 @@
+<% include partials/header %>
+<!-- <script>
+        function fdate() {
+            var delm = document.getElementById("mdate");
+            var emlv = delm.value;
+            var ndate = new Date(emlv);
+            var day = ndate.getDate();
+            var mon = ndate.getMonth();
+            var year = ndate.getFullYear();
+            delm.type = "text";
+            delm.value = year + "-" + mon + "-" + day;
+        }
+
+        function cdate() {
+            var delm = document.getElementById("mdate");
+            delm.type = "date";
+        }
+
+    </script> -->
+
+<div class="loginbg ">
+    <div style="width: 50%; margin-top: 40px;" class="formbg">
+        <h3>Fill the details of Employee</h3>
+        <form action="/createuser" method="POST">
+            <input style="width: 33%;" type="" name="username" placeholder="username" required="">
+            <input style="width: 33%;" type="Password" name="password" placeholder="Password" required>
+            <input style="width: 41%;" type="" name="name" placeholder="Employee name" required>
+            <select style="width: 25%; margin: 10px;" name="selectType" id="selectType">
+                <option value="Database Developer">Database Developer</option>
+                <option value="Software Engieneer">Software Engieneer</option>
+                <option value="HR" selected="selected">HR</option>
+                <option value="Project Manager">Project Manager</option>
+                <option value="House Keepers">House Keepers</option>
+            </select>
+            <input style="width: 33%;" type="" name="salary" placeholder="Salary" required>
+            <input style="width: 33%;" type="" name="phone" placeholder="Phone Number" required>
+            <input type="" name="address" placeholder="Address" required>
+            <input style="width: 33%;" type="date" name="dob" placeholder="Date of birth" required>
+            <input style="width: 33%;" type="email" name="email" placeholder="Email" required>
+            <br>
+            <div class="lbtnhelper">
+                <input class="lbtn" type="submit" value="Submit">
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+<% include partials/footer %>

@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+
+<div class="cont">
+    <h2 class="hrlshead">List of All Employees :</h2>
+
+    <% all_data.forEach(function(data){ %>
+        <div class="cont2">
+            <div class="hrll"> 
+            <a href="/get_info">
+            <div class="hrls">
+                <img src="face.png">
+                <div class="hrinfo">
+                    <div>
+                        <p><%= data.username  %></p>
+                        <p><%= data.phone  %></p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            </div>
+        </div>
+
+    <% }); %>
+    
+    <div class="clear"></div>
+
+</div>
+
+<hr class="divider">
+
+<% include partials/footer %>

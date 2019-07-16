@@ -1,0 +1,70 @@
+<% include partials/header %>
+
+<div class="loginbg ">
+    <div style="width: 50%; margin-top: 40px;" class="formbg">
+        <h3>Update the details of Employee</h3>
+
+        <form action="/save" method="POST">
+            <input style="display: none;" name="oldusername" value="<%= data['username'] %>" required="">
+            <input style="width: 33%;" type="" name="username" value="<%= data['username'] %>" required="">
+            <input style="width: 33%;" type="text" name="password" value="<%= data['password'] %>" required>
+            <input style="width: 41%;" type="" name="name" value="<%= data['name'] %>" required>
+            <select style="width: 25%; margin: 10px;" name="selectType" id="selectType">
+                <option id="dd" value="Database Developer" selected=''>Database Developer</option>
+                <script>
+                    var a = document.getElementById('dd');
+                    var val = "<%= data['empType'] %>";
+                    if (a.value == val) {
+                        a.selected = 'selected';
+                    }
+                </script>
+                <option id="se" value="Software Engieneer">Software Engieneer</option>
+                <script>
+                    var a = document.getElementById('se');
+                    var val = "<%= data['empType'] %>";
+                    if (a.value == val) {
+                        a.selected = 'selected';
+                    }
+                </script>
+                <option id="hr" value="HR">HR</option>
+                <script>
+                    var a = document.getElementById('hr');
+                    var val = "<%= data['empType'] %>";
+                    if (a.value == val) {
+                        a.selected = 'selected';
+                    }
+                </script>
+                <option id="pm" value="Project Manager">Project Manager</option>
+                <script>
+                    var a = document.getElementById('pm');
+                    var val = "<%= data['empType'] %>";
+                    if (a.value == val) {
+                        a.selected = 'selected';
+                    }
+                </script>
+                <option id="hk" value="House Keepers">House Keepers</option>
+                <script>
+                    var a = document.getElementById('hk');
+                    var val = "<%= data['empType'] %>";
+                    if (a.value == val) {
+                        a.selected = 'selected';
+                    }
+                </script>
+            </select>
+            <input style="width: 33%;" type="" name="salary" value="<%= data['salary'] %>" required>
+            <input style="width: 33%;" type="" name="phone" value="<%= data['phone'] %>" required>
+            <input type="" name="address" value="<%= data['address'] %>" required>
+            <input style="width: 33%;" type="date" name="dob" value="<%= data['dob'] %>" required>
+            <input style="width: 33%;" type="email" name="email" value="<%= data['email'] %>" required>
+            <br>
+            <div class="lbtnhelper">
+                <input class="lbtn" type="submit" value="Update">
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+<% include partials/footer %>

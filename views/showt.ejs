@@ -1,0 +1,122 @@
+<% include partials/header %>
+
+<script>
+    function showPopup() {
+        //alert("hii");
+        var elm1 = document.getElementById("popup");
+        var elm1 = document.getElementById("popup");
+        if (elm1.style.display === "none") {
+            elm1.style.display = "block";
+        } else {
+            elm1.style.display = "none";
+        }
+    }
+
+</script>
+
+<div id="popup" class="loginbg " style="position: absolute; display: none; ">
+    <div style=" width: 50%; margin-top: 40px; background-color: rgba(255, 255, 255,0.9 )" class="formbg">
+        <h3 style="color: black">Filter</h3>
+
+        <p>Employee Type</p>
+
+        <form action="/filter" method="POST">
+
+            <select name="empType" id="empType" >
+                <option id="all" value="All" selected="selected">All</option>
+
+                <option id="dd" value="Database Developer">Database Developer</option>
+                
+                <option id="se" value="Software Engieneer">Software Engieneer</option>
+                
+                <option id="hr" value="HR">HR</option>
+                
+                <option id="pm" value="Project Manager">Project Manager</option>
+                
+                <option id="hk" value="House Keepers">House Keepers</option>
+            </select>
+            <input class="filbtn" type="submit" value="Filter">
+        </form>
+        <button class="filbtn" onclick="showPopup()">Cancel</button>
+
+    </div>
+
+</div>
+
+
+
+<div class="dcont" id="table">
+    <div class="srchfilt">
+        <form action="/search" method="POST" style="display: inline-block;">
+            <input type="text" class="searchip" name="sdata">
+            <input class="filbtn" type="submit" value="Search">
+        </form>
+        <button class="filbtn" onclick="showPopup()" style="display: inline-block;">Filter Button</button>
+    </div>
+    
+
+    <table class="showd">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Employee Type</th>
+            <th>Salary</th>
+            <th>Phone No.</th>
+            <th>Address</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <% all_data.forEach(function(data){ %>
+
+        <tr>
+            <td>
+                <p><%= data.username %></p>
+            </td>
+            <td>
+                <p><%= data.password %></p>
+            </td>
+            <td>
+                <p><%= data.name %></p>
+            </td>
+            <td>
+                <p><%= data.empType %></p>
+            </td>
+            <td>
+                <p><%= data.salary %></p>
+            </td>
+            <td>
+                <p><%= data.phone %></p>
+            </td>
+            <td>
+                <p><%= data.address %></p>
+            </td>
+            <td>
+                <p><%= data['DATE_FORMAT(dob, "%d/%m/%Y")'] %></p>
+            </td>
+            <td>
+                <p><%= data.email %></p>
+            </td>
+            <td>
+                <form action="/edit" method="POST">
+                    <input type="text" value="<%= data.username %>" name="uname" style="display: none">
+                    <input type="submit" value="Edit">
+                </form>
+            </td>
+            <td>
+                <form action="/remove" method="POST">
+                    <input type="text" value="<%= data.username %>" name="uname" style="display: none">
+                    <input type="submit" value="Delete">
+                </form>
+
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</div>
+  
+
+
+<% include partials/footer %>
